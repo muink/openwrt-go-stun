@@ -49,6 +49,25 @@ define Package/$(PKG_NAME)/conffiles
 endef
 
 define Package/$(PKG_NAME)/postinst
+#!/bin/sh
+uci show luci | grep "name='go-stun NAT Type Test'" >/dev/null
+if [ "$$?" == "1" ]; then
+	section=$$(uci add luci command)
+	uci -q batch <<-EOF >/dev/null
+		set luci.$$section.name='go-stun NAT Type Test'
+		set luci.$$section.command='go-stun -s stun.syncthing.net:3478'
+		commit luci
+	EOF
+fi
+uci show luci | grep "name='go-stun NAT Behavior Test'" >/dev/null
+if [ "$$?" == "1" ]; then
+	section=$$(uci add luci command)
+	uci -q batch <<-EOF >/dev/null
+		set luci.$$section.name='go-stun NAT Behavior Test'
+		set luci.$$section.command='go-stun -b -s stun.syncthing.net:3478'
+		commit luci
+	EOF
+fi
 endef
 
 define Package/$(PKG_NAME)/prerm
