@@ -50,7 +50,7 @@ endef
 
 define Package/$(PKG_NAME)/postinst
 #!/bin/sh
-uci show luci | grep "name='go-stun NAT Type Test'" >/dev/null
+uci show luci | grep -E "luci.@command\[.+\.name='go-stun NAT Type Test'" >/dev/null
 if [ "$$?" == "1" ]; then
 	section=$$(uci add luci command)
 	uci -q batch <<-EOF >/dev/null
