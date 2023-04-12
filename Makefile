@@ -49,25 +49,6 @@ define Package/$(PKG_NAME)/conffiles
 endef
 
 define Package/$(PKG_NAME)/postinst
-#!/bin/sh
-uci show luci | grep -E "luci.@command\[.+\.name='go-stun NAT Type Test'" >/dev/null
-if [ "$$?" == "1" ]; then
-	section=$$(uci add luci command)
-	uci -q batch <<-EOF >/dev/null
-		set luci.$$section.name='go-stun NAT Type Test'
-		set luci.$$section.command='go-stun -s stun.syncthing.net:3478'
-		commit luci
-	EOF
-fi
-uci show luci | grep "name='go-stun NAT Behavior Test'" >/dev/null
-if [ "$$?" == "1" ]; then
-	section=$$(uci add luci command)
-	uci -q batch <<-EOF >/dev/null
-		set luci.$$section.name='go-stun NAT Behavior Test'
-		set luci.$$section.command='go-stun -b -s stun.syncthing.net:3478'
-		commit luci
-	EOF
-fi
 endef
 
 define Package/$(PKG_NAME)/prerm
@@ -78,6 +59,9 @@ define Package/$(PKG_NAME)/install
 
 	$(INSTALL_DIR) $(1)/usr/bin/
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/$(PKG_NAME) $(1)/usr/bin/
+
+	$(INSTALL_DIR) $(1)/etc/uci-defaults
+	$(INSTALL_BIN) ./uci-defaults $(1)/etc/uci-defaults/99_$(PKG_NAME)
 endef
 
 $(eval $(call GoBinPackage,$(PKG_NAME)))
