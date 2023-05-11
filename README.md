@@ -7,6 +7,9 @@ A go implementation of the STUN client (RFC 3489 and RFC 5389)
 This project is the software package of [go-stun][] running on OpenWrt  
 Recommended to use it with `luci-app-commands`
 
+## Releases
+You can find the prebuilt-ipks [here](https://fantastic-packages.github.io/packages/)
+
 ## Build
 
 ```shell
