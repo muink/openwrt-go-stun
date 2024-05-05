@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2023 muink
+# Copyright (C) 2023-2024 Anya Lin
 #
 # This is free software, licensed under the Apache-2.0 license.
 # See /LICENSE for more information.
@@ -8,7 +8,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=go-stun
 PKG_VERSION=0.1.4
-PKG_RELEASE:=9
+PKG_RELEASE:=10
 
 PKG_MAINTAINER:=muink <hukk1996@gmail.com>
 PKG_LICENSE:=Apache-2.0
@@ -16,8 +16,8 @@ PKG_LICENSE_FILES:=LICENSE
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/ccding/go-stun.git
-PKG_SOURCE_VERSION:=0f417a9a4966a4b479291084bfcfe829e2264014
-PKG_MIRROR_HASH:=4866f2bcb63aa0e93d4ad736d1e76b9c280ac883b865326f38a05475af8c23b7
+PKG_SOURCE_VERSION:=d32c135f5e509d278e95ba9945849903f966a91f
+PKG_MIRROR_HASH:=f2aa9d9e9dd781c7a7cdf6c486f90d4b336518605dd519c1a02afcca812b8b93
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 
