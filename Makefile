@@ -1,9 +1,7 @@
+# SPDX-License-Identifier: Apache-2.0
 #
-# Copyright (C) 2023-2024 Anya Lin
-#
-# This is free software, licensed under the Apache-2.0 license.
-# See /LICENSE for more information.
-#
+# Copyright (C) 2023-2024 Anya Lin <hukk1996@gmail.com>
+
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=go-stun
