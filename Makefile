@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: Apache-2.0
 #
-# Copyright (C) 2023-2024 Anya Lin <hukk1996@gmail.com>
+# Copyright (C) 2023-2025 Anya Lin <hukk1996@gmail.com>
 
 include $(TOPDIR)/rules.mk
 
@@ -15,8 +15,9 @@ PKG_SOURCE_URL:=https://github.com/ccding/go-stun.git
 PKG_SOURCE_VERSION:=$(PKG_UPSTREAM_GITHASH)
 PKG_MIRROR_HASH:=f2aa9d9e9dd781c7a7cdf6c486f90d4b336518605dd519c1a02afcca812b8b93
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_UPSTREAM_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_UPSTREAM_VERSION)
+PKG_SOURCE:=$(PKG_SOURCE_SUBDIR)-$(PKG_SOURCE_VERSION).tar.gz
+
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_SOURCE_SUBDIR)
 
 PKG_MAINTAINER:=Anya Lin <hukk1996@gmail.com>
